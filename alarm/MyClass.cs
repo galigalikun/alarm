@@ -5,18 +5,18 @@ namespace alarm
 {
 	public class MyClass : Realms.RealmObject
 	{
-		[ObjectId]
+		[Realms.ObjectId]
 		public Int64 Id { get; set; }
-		// [Indexed]
+		// [Realms.Indexed]
 		public string Name { get; set; }
 
-		public static void insert()
+		public static void insert(Int64 id, string name)
 		{
 			var realm = Realms.Realm.GetInstance ();
 			realm.Write (() => {
 				var obj = realm.CreateObject<MyClass>();
-				obj.Id = 0;
-				obj.Name = "todo";
+				obj.Id = id;
+				obj.Name = name;
 			});
 		}
 
@@ -31,7 +31,9 @@ namespace alarm
 
 		public static void init()
 		{
-			
+			insert (0, "todo");
+			insert (1, "todo");
+			insert (1, "todo");
 		}
 	}
 }
