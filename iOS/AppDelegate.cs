@@ -20,6 +20,8 @@ namespace alarm.iOS
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
+			var g = GlobalConfig("todo");
+
 			return true;
 		}
 
