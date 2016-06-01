@@ -31,6 +31,7 @@ namespace alarm.iOS
 
 
 			System.Diagnostics.Debug.WriteLine("akaishi");
+			var g = GlobalConfig("todo");
 
 			return true;
 		}
