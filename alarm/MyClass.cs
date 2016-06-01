@@ -10,7 +10,7 @@ namespace alarm
 		// [Realms.Indexed]
 		public string Name { get; set; }
 
-		public static void insert(Int64 id, string name)
+		public static void Insert(Int64 id, string name)
 		{
 			var realm = Realms.Realm.GetInstance ();
 			realm.Write (() => {
@@ -20,7 +20,7 @@ namespace alarm
 			});
 		}
 
-		public static MyClass findById(Int64 id)
+		public static MyClass FindById(Int64 id)
 		{
 			var realm = Realms.Realm.GetInstance ();
 
@@ -29,11 +29,23 @@ namespace alarm
 
 		}
 
-		public static void init()
+		public static void Init()
 		{
-			insert (0, "todo");
-			insert (1, "todo");
-			insert (1, "todo");
+			Insert (0, "todo");
+			Insert (1, "todo");
+			Insert (1, "todo");
+		}
+
+
+		public static async System.Threading.Tasks.Task<string> todo(string u)
+		{
+
+			System.Diagnostics.Debug.WriteLine ("todo call");
+
+			using (var client = new System.Net.Http.HttpClient ()) {
+				return await client.GetStringAsync (u);
+			}
+
 		}
 	}
 }

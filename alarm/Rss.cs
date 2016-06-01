@@ -10,7 +10,7 @@ namespace alarm
 
 
 
-		static void init()
+		public static void Init()
 		{
 			var realm = Realms.Realm.GetInstance ();
 

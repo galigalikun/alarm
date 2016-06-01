@@ -20,6 +20,18 @@ namespace alarm.iOS
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
+			Rss.Init ();
+
+
+			MyClass.todo ("https://qiita.com/").ContinueWith((task) => {
+
+				System.Diagnostics.Debug.WriteLine("akasihi request callback");
+				System.Diagnostics.Debug.WriteLine("aa:" + task.Result);
+			});
+
+
+			System.Diagnostics.Debug.WriteLine("akaishi");
+
 			return true;
 		}
 
